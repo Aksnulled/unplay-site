@@ -85,7 +85,7 @@ function drawTube(x,y,ang,segs,b){
  if(b&&b.done){const p=cl((T-b.done)/.35),s=p<1?1+Math.sin(p*Math.PI)*.4:1;g.save();g.translate(0,-10);g.scale(s,s);
   g.fillStyle='#b5713a';rr(-R+4,-10,TW-8,18,5);g.fill();g.fillStyle='#d9955a';rr(-R+6,-10,TW-12,6,3);g.fill();g.restore()}
  g.restore()}
-function outText(t,x,y,size,fill,rot,sc){g.save();g.translate(x,y);g.rotate(rot||0);g.scale(sc||1,sc||1);g.font=`900 ${size}px system-ui,sans-serif`;g.textAlign='center';g.textBaseline='middle';
+function outText(t,x,y,size,fill,rot,sc){g.save();g.translate(x,y);g.rotate(rot||0);g.scale(sc||1,sc||1);g.font=`900 ${size}px system-ui,sans-serif`;g.textAlign='center';g.textBaseline='middle';{const w=g.measureText(t).width+size*.3,m=Math.max(60,2*Math.min(x,360-x)-16)/(sc||1);if(w>m)g.scale(m/w,m/w)}
  g.lineJoin='round';g.lineWidth=size*.22;g.strokeStyle='#2a0f6b';g.strokeText(t,0,size*.06);g.strokeText(t,0,0);g.fillStyle=fill;g.fillText(t,0,0);g.restore()}
 // Main de tutoriel commune (19/11) : main blanche, index tendu, contour sombre épais, ombre.
 // drawHand(g,x,y,press,k) : (x,y) = bout de l'index ; press 0..1 = appui ; k = échelle (1 ≈ 76 px de haut)

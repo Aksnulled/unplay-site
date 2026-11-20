@@ -23,6 +23,7 @@ function snd(k,p){try{if(!AC)AC=new(window.AudioContext||window.webkitAudioConte
 function rr(x,y,w,h,r){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath()}
 function circ(x,y,r){g.beginPath();g.arc(x,y,Math.max(r,.1),0,Math.PI*2)}
 function outText(t,x,y,size,fill,rot,sc,stroke){g.save();g.translate(x,y);g.rotate(rot||0);g.scale(sc||1,sc||1);g.font=`900 ${size}px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif`;g.textAlign='center';g.textBaseline='middle';
+ {const w=g.measureText(t).width+size*.3,m=Math.max(60,2*Math.min(x,360-x)-16)/(sc||1);if(w>m)g.scale(m/w,m/w)}// texte trop large : réduit pour tenir dans l'écran (19/11)
  g.lineJoin='round';g.lineWidth=size*.24;g.strokeStyle=stroke||CFG.ink||'#2a0f6b';g.strokeText(t,0,size*.07);g.strokeText(t,0,0);g.fillStyle=fill;g.fillText(t,0,0);g.restore()}
 // Main de tutoriel commune (19/11) : main blanche, index tendu, contour sombre épais, ombre.
 // drawHand(g,x,y,press,k) : (x,y) = bout de l'index ; press 0..1 = appui ; k = échelle (1 ≈ 76 px de haut)
